@@ -1,10 +1,41 @@
 {% extends 'base.html' %} 
 {% block content %}
-<div class="col-md-6 offset-md-3">
+
   {% if user.is_authenticated %}
 
-  <h1>Hello World!</h1>
+ 
+  <table class="table table-hover table-bordered ">
+    <thead class="table-dark">
+      <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Email</th>
+        <th scope="col">Phone</th>
+        <th scope="col">Created_At</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+        {% if records %}
+        {% for record in records %}
+        <tr>
+            <td>{{ record.first_name }}
+                {{ record.last_name }}</td>
+              <td>{{ record.email }}</td>
+              <td>{{ record.phone }}</td>
+              <td>{{ record.created_at}}</td>
+            <br/><br/>
+        </tr>
+        {% endfor %}
+   
+     {% endif %}   
 
+      </tr>
+    </tbody>
+  </table>
+
+
+
+  
   {% else %}
 
   <h1>Login</h1>
@@ -24,7 +55,7 @@
    <button type="submit" class="btn btn-secondary">Login</button>
 
   </form>
-</div>
+
 
 {% endif %}
 
