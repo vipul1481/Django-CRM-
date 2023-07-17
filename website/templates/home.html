@@ -11,6 +11,7 @@
         <th scope="col">Email</th>
         <th scope="col">Phone</th>
         <th scope="col">Created_At</th>
+        <th scope="col">ID</th>
       </tr>
     </thead>
     <tbody>
@@ -23,6 +24,7 @@
               <td>{{ record.email }}</td>
               <td>{{ record.phone }}</td>
               <td>{{ record.created_at}}</td>
+              <td><a href="{% url 'record' record.id %}">{{ record.id }}</a></td>
             <br/><br/>
         </tr>
         {% endfor %}
@@ -37,7 +39,7 @@
 
   
   {% else %}
-
+  <div class="col-md-6 offset-md-3">
   <h1>Login</h1>
   <br />
 
@@ -55,7 +57,7 @@
    <button type="submit" class="btn btn-secondary">Login</button>
 
   </form>
-
+</div>
 
 {% endif %}
 
